@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /assets/people/
+Allow: /
+
+Sitemap: https://salehshakoor.github.io/sitemap.xml
