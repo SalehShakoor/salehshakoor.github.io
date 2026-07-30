@@ -24,15 +24,14 @@
 <meta name="twitter:description" content="Computer Science graduate and AI/ML researcher with research experience at Macquarie University and Amirkabir University of Technology.">
 <meta name="twitter:image" content="https://salehshakour.github.io/assets/MyImage.jpg">
 
-
 <!-- Structured data for Google (Person rich result) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Saleh Shakoor",
-  "url": "https://salehshakoor.github.io/",
-  "image": "https://salehshakoor.github.io/assets/MyImage.jpg",
+  "url": "https://salehshakour.github.io/",
+  "image": "https://salehshakour.github.io/assets/MyImage.jpg",
   "jobTitle": "AI Researcher",
   "alumniOf": {
     "@type": "CollegeOrUniversity",
@@ -40,7 +39,7 @@
   },
   "sameAs": [
     "https://www.linkedin.com/in/saleh-shakoor",
-    "https://github.com/Salehshakoor"
+    "https://github.com/SalehShakour"
   ]
 }
 </script>
@@ -535,7 +534,9 @@
   .ref-body { flex: 1; min-width: 0; }
 
   @media (max-width: 480px) {
-    .ref-card { flex-direction: column; align-items: flex-start; }
+    .ref-card { align-items: flex-start; }
+    .ref-photo { width: 3.4rem; height: 3.4rem; }
+    .ref-card h4 { font-size: 0.98rem; }
   }
 
   ::-webkit-scrollbar { width: 8px; }
@@ -678,6 +679,12 @@
     color: #454b56;
     margin-bottom: 0.5rem;
   }
+  .people-link {
+    color: #4a6cf7;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .people-link:hover { color: #3651d4; }
   #research .research-entry ul {
     padding-left: 1.15rem;
     margin-bottom: 0;
@@ -691,6 +698,84 @@
   @media (max-width: 480px) {
     #research .research-track { padding-left: 1.35rem; }
     #research .research-entry::before { left: -1.85rem; width: 10px; height: 10px; }
+  }
+
+  /* ============ RESEARCH TABS: Story / Achievements / People ============ */
+  .research-tabs { margin-top: 0.85rem; }
+  .research-tabs .tab-radio { position: absolute; opacity: 0; pointer-events: none; }
+  .research-tabs .tab-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .research-tabs .tab-nav label {
+    cursor: pointer;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6b7280;
+    background: #f4f6fb;
+    border: 1px solid #eef0f4;
+    letter-spacing: 0.01em;
+  }
+  .research-tabs .tab-nav label:hover { color: #4a6cf7; border-color: #d5dcff; }
+
+  .research-tabs .tab-story:checked ~ .tab-nav label[for$="-story"],
+  .research-tabs .tab-achievements:checked ~ .tab-nav label[for$="-achievements"],
+  .research-tabs .tab-people:checked ~ .tab-nav label[for$="-people"] {
+    background: #4a6cf7;
+    color: #fff;
+    border-color: #4a6cf7;
+  }
+
+  .research-tabs .tab-panel { display: none; animation: tabFadeIn 0.25s ease; }
+  .research-tabs .tab-story:checked ~ .tab-content .panel-story,
+  .research-tabs .tab-achievements:checked ~ .tab-content .panel-achievements,
+  .research-tabs .tab-people:checked ~ .tab-content .panel-people {
+    display: block;
+  }
+
+  @keyframes tabFadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .research-tabs .panel-story p {
+    font-size: 0.95rem;
+    color: #454b56;
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  .research-tabs .people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin-top: 0.25rem;
+  }
+  .research-tabs .people-grid .ref-card p { min-height: 0; }
+  .research-tabs .person-role {
+    color: #6b7280;
+    font-style: italic;
+    font-size: 0.82rem;
+    margin-bottom: 0.35rem;
+  }
+  .research-tabs .person-note {
+    font-size: 0.88rem;
+    color: #454b56;
+    margin-bottom: 0.6rem;
+  }
+  .research-tabs .people-grid .ref-links { white-space: nowrap; }
+
+  @media (max-width: 700px) {
+    .research-tabs .people-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .research-tabs .tab-nav label { font-size: 0.76rem; padding: 0.35rem 0.85rem; }
+    .research-tabs .panel-story p { font-size: 0.88rem; }
   }
 
   /* ============ PUBLICATIONS: clean card matching card-item family ============ */
@@ -968,12 +1053,12 @@
 
           <div class="social-icons mb-3 mt-3">
             <a href="https://www.linkedin.com/in/saleh-shakoor" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/Salehshakoor" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/SalehShakour" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="mailto:saleh.shakoor.edu@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
 
           <p class="lead mb-3" style="max-width: 55rem;">
-            I am a Computer Science graduate and AI/ML researcher. I have worked on research projects at Macquarie University and Amirkabir University of Technology, and I have engineering experience from industry. I am now planning to continue my graduate studies abroad, seeking international opportunities for the 2027 academic year.
+            I am a Computer Science graduate and AI/ML researcher. I have worked on research projects at Macquarie University and Amirkabir University of Technology, and I have backend engineering experience from industry. I am now planning to continue my graduate studies abroad, seeking international opportunities for the 2027 academic year.
           </p>
 
           <div class="tag-wrap">
@@ -1008,39 +1093,187 @@
           <span class="date">Apr 2025 &ndash; Apr 2026</span>
           <h3>Research Intern, Macquarie University</h3>
           <p class="subtitle">Centre for Applied Artificial Intelligence, Sydney | Remote International Collaboration</p>
-          <p class="sup-line">Supervised by <a href="https://scholar.google.com/citations?user=Uw1OLAgAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Prof. Amin Beheshti</a></p>
-          <ul>
-            <li>Built a retrieval-based framework for misinformation detection requiring no model fine-tuning.</li>
-            <li>Addressed semantic-RAG failure in deceptive content detection with a veracity-oriented retrieval key.</li>
-            <li>Achieved <span class="highlight">+7.0 pp F1</span> over zero-shot and <span class="highlight">+10.1 pp</span> over semantic-RAG on Mistral-7B.</li>
-            <li>Engineered an indexing scheme compact enough to cover 8,000+ docs in under <span class="highlight">25 KB</span>.</li>
-            <li>Boosted Qwen3-8B F1 by <span class="highlight">+9.6 pp</span> over zero-shot via cross-model indexing.</li>
-          </ul>
+          <p class="sup-line">Supervised by <label for="mq-people" class="people-link">Prof. Amin Beheshti</label></p>
+
+          <div class="research-tabs">
+            <input type="radio" class="tab-radio tab-story" name="tabs-mq" id="mq-story" checked>
+            <input type="radio" class="tab-radio tab-achievements" name="tabs-mq" id="mq-achievements">
+            <input type="radio" class="tab-radio tab-people" name="tabs-mq" id="mq-people">
+
+            <div class="tab-nav">
+              <label for="mq-story">Story</label>
+              <label for="mq-achievements">Achievements</label>
+              <label for="mq-people">People</label>
+            </div>
+
+            <div class="tab-content">
+              <div class="tab-panel panel-story">
+                <p>When I decided to study abroad, I wanted to build real international research experience. The Centre for Applied Artificial Intelligence stood out for its active, fast-moving environment, so I reached out to Prof. Amin Beheshti and asked for an internship. I had the option to join an ongoing graduate project or design my own, and I chose to design mine around Trustworthy AI, a field I care deeply about. I noticed that semantic retrieval based methods often failed at misinformation detection and content credibility assessment, so I set out to design a more reliable way to retrieve similar cases for this task. It was my first real experience in an international research setting, and it shaped how I approach research today.</p>
+              </div>
+              <div class="tab-panel panel-achievements">
+                <ul>
+                  <li>Built a retrieval-based framework for misinformation detection requiring no model fine-tuning.</li>
+                  <li>Addressed semantic-RAG failure in deceptive content detection with a veracity-oriented retrieval key.</li>
+                  <li>Achieved <span class="highlight">+7.0 pp F1</span> over zero-shot and <span class="highlight">+10.1 pp</span> over semantic-RAG on Mistral-7B.</li>
+                  <li>Engineered an indexing scheme compact enough to cover 8,000+ docs in under <span class="highlight">25 KB</span>.</li>
+                  <li>Boosted Qwen3-8B F1 by <span class="highlight">+9.6 pp</span> over zero-shot via cross-model indexing.</li>
+                </ul>
+              </div>
+              <div class="tab-panel panel-people">
+                <div class="people-grid">
+                  <div class="ref-card">
+                    <div class="ref-photo">
+                      <img src="assets/Prof-Beheshti.jpg" alt="Prof. Amin Beheshti" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
+                      <span class="ph-fallback">AB</span>
+                    </div>
+                    <div class="ref-body">
+                      <h4>Prof. Amin Beheshti</h4>
+                      <p class="person-role">Research Supervisor</p>
+                      <p class="person-note">Taught me how to turn a vague idea into a well-defined research question.</p>
+                      <div class="ref-links">
+                        <a href="https://www.linkedin.com/in/prof-amin-beheshti/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://scholar.google.com/citations?user=Uw1OLAgAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Scholar</a>
+                        <a href="mailto:amin.beheshti@mq.edu.au"><i class="fas fa-envelope"></i> Email</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ref-card">
+                    <div class="ref-photo">
+                      <img src="assets/Kamyar.jpg" alt="Kamyar Taeb" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
+                      <span class="ph-fallback">KT</span>
+                    </div>
+                    <div class="ref-body">
+                      <h4>Kamyar Taeb</h4>
+                      <p class="person-role">Graduate Student, Macquarie University</p>
+                      <p class="person-note">Always up for discussing ideas, and helped me think more critically about experimental design.</p>
+                      <div class="ref-links">
+                        <a href="https://www.linkedin.com/in/kamyar-taeb-1739051a4/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://scholar.google.com/citations?user=kaQOzhEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Scholar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="research-entry">
           <span class="date">Feb 2025 &ndash; Aug 2025</span>
           <h3>Research Assistant, Amirkabir University</h3>
           <p class="subtitle">Innovation and Data Science Lab | On-Site</p>
-          <p class="sup-line">Supervised by <a href="https://scholar.google.com/citations?user=JU344KEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Prof. Mohammad Akbari</a></p>
-          <ul>
-            <li>Replaced a multi-stage rule-based NLP pipeline with a unified <span class="highlight">LLM slot-filler</span> in a single model call.</li>
-            <li>Enabled robust parsing of complex expressions using few-shot prompting over structured JSON output.</li>
-            <li>Identified colloquial Persian phrasing as a key limitation of rule-based slot extraction.</li>
-            <li>Built a task management agent integrated with <span class="highlight">Google Calendar API</span> for end-to-end scheduling.</li>
-          </ul>
+          <p class="sup-line">Supervised by <label for="ak-people" class="people-link">Dr. Mohammad Akbari</label></p>
+
+          <div class="research-tabs">
+            <input type="radio" class="tab-radio tab-story" name="tabs-ak" id="ak-story" checked>
+            <input type="radio" class="tab-radio tab-achievements" name="tabs-ak" id="ak-achievements">
+            <input type="radio" class="tab-radio tab-people" name="tabs-ak" id="ak-people">
+
+            <div class="tab-nav">
+              <label for="ak-story">Story</label>
+              <label for="ak-achievements">Achievements</label>
+              <label for="ak-people">People</label>
+            </div>
+
+            <div class="tab-content">
+              <div class="tab-panel panel-story">
+                <p>When I decided to start my journey into academic AI research, joining the Innovation and Data Science Lab under Dr. Mohammad Akbari turned out to be one of the best opportunities I could have asked for. The lab always had active projects, and students worked closely together across every stage of the work, so undergraduates like me could learn directly from graduate researchers. When I joined, the lab's main project was a Persian language intelligent assistant built around three modules: media recommendation, time and task management, and information retrieval. I was assigned to the time and task management module.</p>
+              </div>
+              <div class="tab-panel panel-achievements">
+                <ul>
+                  <li>Replaced a multi-stage rule-based NLP pipeline with a unified <span class="highlight">LLM slot-filler</span> in a single model call.</li>
+                  <li>Enabled robust parsing of complex expressions using few-shot prompting over structured JSON output.</li>
+                  <li>Identified colloquial Persian phrasing as a key limitation of rule-based slot extraction.</li>
+                  <li>Built a task management agent integrated with <span class="highlight">Google Calendar API</span> for end-to-end scheduling.</li>
+                </ul>
+              </div>
+              <div class="tab-panel panel-people">
+                <div class="people-grid">
+                  <div class="ref-card">
+                    <div class="ref-photo">
+                      <img src="assets/Prof-Akbari.jpg" alt="Dr. Mohammad Akbari" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
+                      <span class="ph-fallback">MA</span>
+                    </div>
+                    <div class="ref-body">
+                      <h4>Dr. Mohammad Akbari</h4>
+                      <p class="person-role">Research Supervisor</p>
+                      <p class="person-note">Showed me what it means to run a genuinely collaborative research lab.</p>
+                      <div class="ref-links">
+                        <a href="https://www.linkedin.com/in/akbari59/?skipRedirect=true" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://scholar.google.com/citations?user=JU344KEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Scholar</a>
+                        <a href="mailto:akbari.ma@aut.ac.ir"><i class="fas fa-envelope"></i> Email</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ref-card">
+                    <div class="ref-photo">
+                      <img src="assets/Amirhossein.jpg" alt="Amirhossein Joghataei" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
+                      <span class="ph-fallback">AJ</span>
+                    </div>
+                    <div class="ref-body">
+                      <h4>Amirhossein Joghataei</h4>
+                      <p class="person-role">Graduate Student, Amirkabir University</p>
+                      <p class="person-note">Patiently walked me through the lab's codebase and workflow when I was just getting started.</p>
+                      <div class="ref-links">
+                        <a href="https://www.linkedin.com/in/amir2647/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="research-entry">
           <span class="date">Sep 2024 &ndash; May 2025</span>
           <h3>Bachelor's Thesis</h3>
           <p class="subtitle">Optimization of Vehicle Routing Problems with Variable Constraints</p>
-          <p class="sup-line">Supervised by <a href="https://scholar.google.com/citations?user=5zZa0ekAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Prof. Mostafa Shamsi</a></p>
-          <ul>
-            <li>Benchmarked Local Search &amp; Metaheuristic pairings across 5 VRP variants using OR-Tools.</li>
-            <li>Showed GLS and Tabu Search recover optimal solutions from suboptimal starts.</li>
-            <li>Found hard constraints significantly degrade Metaheuristic performance.</li>
-          </ul>
+          <p class="sup-line">Supervised by <label for="th-people" class="people-link">Prof. Mostafa Shamsi</label></p>
+
+          <div class="research-tabs">
+            <input type="radio" class="tab-radio tab-story" name="tabs-th" id="th-story" checked>
+            <input type="radio" class="tab-radio tab-achievements" name="tabs-th" id="th-achievements">
+            <input type="radio" class="tab-radio tab-people" name="tabs-th" id="th-people">
+
+            <div class="tab-nav">
+              <label for="th-story">Story</label>
+              <label for="th-achievements">Achievements</label>
+              <label for="th-people">People</label>
+            </div>
+
+            <div class="tab-content">
+              <div class="tab-panel panel-story">
+                <p>Before moving into AI, I worked as a backend developer, and one of my most meaningful roles was at a company building a navigation and maps product. That experience sparked my curiosity about vehicle routing problems, so I chose it as my thesis topic and worked on it under Prof. Mostafa Shamsi. It gave me a deep appreciation for local search and metaheuristic methods, and it's where my research instincts really started to take shape.</p>
+              </div>
+              <div class="tab-panel panel-achievements">
+                <ul>
+                  <li>Benchmarked Local Search &amp; Metaheuristic pairings across 5 VRP variants using OR-Tools.</li>
+                  <li>Showed GLS and Tabu Search recover optimal solutions from suboptimal starts.</li>
+                  <li>Found hard constraints significantly degrade Metaheuristic performance.</li>
+                </ul>
+              </div>
+              <div class="tab-panel panel-people">
+                <div class="people-grid">
+                  <div class="ref-card">
+                    <div class="ref-photo">
+                      <img src="assets/Prof-Shamsi.jpg" alt="Prof. Mostafa Shamsi" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
+                      <span class="ph-fallback">MS</span>
+                    </div>
+                    <div class="ref-body">
+                      <h4>Prof. Mostafa Shamsi</h4>
+                      <p class="person-role">Thesis Supervisor</p>
+                      <p class="person-note">Pushed me to question my assumptions and always back claims with rigorous experiments.</p>
+                      <div class="ref-links">
+                        <a href="https://scholar.google.com/citations?user=5zZa0ekAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Scholar</a>
+                        <a href="mailto:m_shamsi@aut.ac.ir"><i class="fas fa-envelope"></i> Email</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1099,28 +1332,28 @@
 
       <div class="proj-row">
         <span class="proj-name">Maternal Health Risk Classification</span>
-        <a class="proj-link" href="https://github.com/Salehshakoor/Maternal-Health-Risk-Classification" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
+        <a class="proj-link" href="https://github.com/SalehShakour/Maternal-Health-Risk-Classification" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
         <span class="proj-desc">Benchmarked 10 classifiers with leakage-safe Scikit-learn pipelines on a deduplicated UCI dataset.</span>
       </div>
       <div class="proj-row">
         <span class="proj-name">Breast Cancer Wisconsin Classification</span>
-        <a class="proj-link" href="https://github.com/Salehshakoor/Breast-Cancer-Wisconsin-Classification" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
+        <a class="proj-link" href="https://github.com/SalehShakour/Breast-Cancer-Wisconsin-Classification" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
         <span class="proj-desc">Built a PyTorch MLP with Dropout optimized for high malignant recall in tumor classification.</span>
       </div>
       <div class="proj-row">
         <span class="proj-name">Hepatitis Outcome Prediction</span>
-        <a class="proj-link" href="https://github.com/Salehshakoor/Hepatitis-Patient-Outcome-Classification" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
+        <a class="proj-link" href="https://github.com/SalehShakour/Hepatitis-Patient-Outcome-Classification" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
         <span class="proj-desc">Predicted patient survival from clinical records using a tuned MLP with PCA and SMOTE.</span>
       </div>
       <div class="proj-row">
         <span class="proj-name">Classical Vision from Scratch</span>
-        <a class="proj-link" href="https://github.com/Salehshakoor/Classical-Vision-from-Scratch" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
+        <a class="proj-link" href="https://github.com/SalehShakour/Classical-Vision-from-Scratch" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
         <span class="proj-desc">Implemented classical computer vision algorithms from filtering to homography without high-level libraries.</span>
       </div>
       <div class="proj-row">
         <span class="proj-name">AI Monopoly Game</span>
-        <a class="proj-link" href="https://github.com/Salehshakoor/Monopoly-game" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
-        <span class="proj-desc">Implements an Expectiminimax agent with utility functions to optimize decisions under game uncertainty.</span>
+        <a class="proj-link" href="https://github.com/SalehShakour/Monopoly-game" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>Repository</a>
+        <span class="proj-desc">Implements an Expectiminimax agent with utility functions to optimize decisions under game uncertainty. <i>Python, Expectiminimax</i></span>
       </div>
     </div>
   </section>
@@ -1137,15 +1370,68 @@
           <h3>Backend Developer, <a href="https://www.linkedin.com/company/neshanmaps" target="_blank" rel="noopener noreferrer">Neshan Maps</a></h3>
           <span class="date">Oct 2023 &ndash; Apr 2025</span>
         </div>
-        <ul>
-          <li>Engineered backend for <span class="highlight">30M+ clients</span> at <span class="highlight">1,100+ req/sec</span> peak flawlessly.</li>
-          <li>Reduced <span class="highlight">p99 latency from 2s to 18ms</span> via caching redesign.</li>
-          <li>Built session microservice with <span class="highlight">JWT</span> + <span class="highlight">Spring Boot</span> to manage user sessions.</li>
-          <li>Implemented async messaging using <span class="highlight">RabbitMQ</span> to decouple services and improve resilience.</li>
-          <li>Set up monitoring with <span class="highlight">Prometheus</span> and <span class="highlight">Grafana</span> to ensure service uptime.</li>
-          <li>Designed <span class="highlight">database schemas</span> optimized for high-throughput workloads across distributed services.</li>
-          <li>Participated in code reviews and enforced engineering best practices across the team.</li>
-        </ul>
+
+        <div class="research-tabs">
+          <input type="radio" class="tab-radio tab-story" name="tabs-ns" id="ns-story" checked>
+          <input type="radio" class="tab-radio tab-achievements" name="tabs-ns" id="ns-achievements">
+          <input type="radio" class="tab-radio tab-people" name="tabs-ns" id="ns-people">
+
+          <div class="tab-nav">
+            <label for="ns-story">Story</label>
+            <label for="ns-achievements">Achievements</label>
+            <label for="ns-people">People</label>
+          </div>
+
+          <div class="tab-content">
+            <div class="tab-panel panel-story">
+              <p>As a computer science student, I was eager to get real industry experience beyond what academia could offer, since a lot of practical software skills just aren't something you pick up in a classroom. I also had a strong drive to go deep on software engineering, because I knew implementation skills matter as much in research as they do in industry. That's how I joined Neshan Maps through a backend development bootcamp. Neshan is a navigation and maps product that guides millions of Iranians to their destinations every day. Interestingly, global players like Google Maps and Apple Maps have a much smaller footprint in Iran, mainly because Neshan is built around local needs and feels more natural for people to use.</p>
+            </div>
+            <div class="tab-panel panel-achievements">
+              <ul>
+                <li>Engineered backend for <span class="highlight">30M+ clients</span> at <span class="highlight">1,100+ req/sec</span> peak flawlessly.</li>
+                <li>Reduced <span class="highlight">p99 latency from 2s to 18ms</span> via caching redesign.</li>
+                <li>Built session microservice with <span class="highlight">JWT</span> + <span class="highlight">Spring Boot</span> to manage user sessions.</li>
+                <li>Implemented async messaging using <span class="highlight">RabbitMQ</span> to decouple services and improve resilience.</li>
+                <li>Set up monitoring with <span class="highlight">Prometheus</span> and <span class="highlight">Grafana</span> to ensure service uptime.</li>
+                <li>Designed <span class="highlight">database schemas</span> optimized for high-throughput workloads across distributed services.</li>
+                <li>Participated in code reviews and enforced engineering best practices across the team.</li>
+              </ul>
+            </div>
+            <div class="tab-panel panel-people">
+              <div class="people-grid">
+                <div class="ref-card">
+                  <div class="ref-photo">
+                    <img src="assets/MohammadSadeghian.jpg" alt="Mohammad Sadeghian Noghani" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
+                    <span class="ph-fallback">MS</span>
+                  </div>
+                  <div class="ref-body">
+                    <h4>Mohammad Sadeghian Noghani</h4>
+                    <p class="person-role">Engineering Manager, Neshan Maps</p>
+                    <p class="person-note">Played a major role in shaping who I am as a professional. He taught me how to handle problems calmly and think them through under pressure.</p>
+                    <div class="ref-links">
+                      <a href="https://www.linkedin.com/in/mhmd-sdghn/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="ref-card">
+                  <div class="ref-photo">
+                    <img src="assets/AbolfazlMohajeri.jpg" alt="Abolfazl Mohajeri" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
+                    <span class="ph-fallback">AM</span>
+                  </div>
+                  <div class="ref-body">
+                    <h4>Abolfazl Mohajeri</h4>
+                    <p class="person-role">Technical Lead, Neshan Maps</p>
+                    <p class="person-note">My technical mentor. He taught me things that usually take years of hands-on experience to learn.</p>
+                    <div class="ref-links">
+                      <a href="https://www.linkedin.com/in/abmohajeri/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                      <a href="https://abolfazlmohajeri.ir/en" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Website</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="stack-entry">
@@ -1153,10 +1439,48 @@
           <h3>Backend Developer, <a href="https://www.linkedin.com/company/goldscan/" target="_blank" rel="noopener noreferrer">GoldScan</a></h3>
           <span class="date">Sep 2021 &ndash; Aug 2022</span>
         </div>
-        <ul>
-          <li>Built and maintained automated data processing pipelines by integrating third-party APIs.</li>
-          <li>Designed microservice architecture for fault isolation and independent scalability.</li>
-        </ul>
+
+        <div class="research-tabs">
+          <input type="radio" class="tab-radio tab-story" name="tabs-gs" id="gs-story" checked>
+          <input type="radio" class="tab-radio tab-achievements" name="tabs-gs" id="gs-achievements">
+          <input type="radio" class="tab-radio tab-people" name="tabs-gs" id="gs-people">
+
+          <div class="tab-nav">
+            <label for="gs-story">Story</label>
+            <label for="gs-achievements">Achievements</label>
+            <label for="gs-people">People</label>
+          </div>
+
+          <div class="tab-content">
+            <div class="tab-panel panel-story">
+              <p>Early in my studies, a group of students from my department started GoldScan, a fintech startup. I had no real industry experience at that point, and I wanted to put myself in a fresh, fast-moving environment, one that could become a real starting point for my own growth.</p>
+            </div>
+            <div class="tab-panel panel-achievements">
+              <ul>
+                <li>Built and maintained automated data processing pipelines by integrating third-party APIs.</li>
+                <li>Designed microservice architecture for fault isolation and independent scalability.</li>
+              </ul>
+            </div>
+            <div class="tab-panel panel-people">
+              <div class="people-grid">
+                <div class="ref-card">
+                  <div class="ref-photo">
+                    <img src="assets/AliKhavaninzadeh.jpg" alt="Ali Khavaninzadeh" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
+                    <span class="ph-fallback">AK</span>
+                  </div>
+                  <div class="ref-body">
+                    <h4>Ali Khavaninzadeh</h4>
+                    <p class="person-role">Senior Fintech Developer, Formerly at GoldScan</p>
+                    <p class="person-note">My first team lead, and someone who taught me a great deal early on.</p>
+                    <div class="ref-links">
+                      <a href="https://www.linkedin.com/in/ali-khavaninzadeh-125127197/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1306,7 +1630,7 @@
             <span class="lang-name">English</span>
             <span class="lang-level">Professional Working Proficiency</span>
           </div>
-          <div class="lang-score">TOEFL iBT <span class="lang-score-date">(Feb 14, 2026)</span> &middot; <span class="highlight">93</span> / 120</div>
+          <div class="lang-score">TOEFL iBT <span class="lang-score-date">(14 Feb 2026)</span> &middot; <span class="highlight">93</span> / 120</div>
         </div>
       </div>
     </div>
@@ -1333,7 +1657,7 @@
       </div>
       <div class="cert-row">
         <span><span class="cert-name">Backend Development Bootcamp</span><span class="cert-org">Neshan Maps</span></span>
-        <a href="https://lnkd.in/p/e_yeUnab" target="_blank" rel="noopener noreferrer">View Certificate &rarr;</a>
+        <a href="https://www.linkedin.com/posts/saleh-shakoor_im-happy-to-share-that-ive-obtained-a-new-activity-7110678222798733312-h_CY" target="_blank" rel="noopener noreferrer">View Certificate &rarr;</a>
       </div>
     </div>
   </section>
@@ -1374,11 +1698,11 @@
         <div class="ref-card">
           <div class="ref-photo">
             <!-- Place photo at assets/Prof-Akbari.jpg -->
-            <img src="assets/Prof-Akbari.jpg" alt="Prof. Mohammad Akbari" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
+            <img src="assets/Prof-Akbari.jpg" alt="Dr. Mohammad Akbari" onerror="this.parentElement.querySelector('.ph-fallback').style.display='flex'; this.remove();">
             <span class="ph-fallback">MA</span>
           </div>
           <div class="ref-body">
-            <h4>Prof. Mohammad Akbari</h4>
+            <h4>Dr. Mohammad Akbari</h4>
             <p>Assistant Professor<br>
             Dept. of Math &amp; CS<br>
             <b>Amirkabir University, Tehran</b></p>
