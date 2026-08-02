@@ -1109,11 +1109,11 @@
 
             <div class="tab-content">
               <div class="tab-panel panel-story">
-                <p>When I decided to study abroad, I wanted to build real international research experience. The Centre for Applied Artificial Intelligence stood out for its active, fast-moving environment, so I reached out to Prof. Amin Beheshti and asked for an internship. I had the option to join an ongoing graduate project or design my own, and I chose to design mine around Trustworthy AI, a field I care deeply about. I noticed that semantic retrieval based methods often failed at misinformation detection and content credibility assessment, so I set out to design a more reliable way to retrieve similar cases for this task. It was my first real experience in an international research setting, and it shaped how I approach research today.</p>
+                <p>When I decided to study abroad, I wanted to build real international research experience. The Centre for Applied Artificial Intelligence stood out for its active, fast-moving environment, so I reached out to Prof. Amin Beheshti and asked for an internship. I had the option to join an ongoing graduate project or design my own, and I chose to design mine around Trustworthy and Explainable AI, an area I care deeply about. I noticed that semantic retrieval based methods often failed at misinformation detection and content credibility assessment, so I set out to design a more reliable way to retrieve similar cases for this task. It was my first real experience in an international research setting, and it laid the groundwork for my future career.</p>
               </div>
               <div class="tab-panel panel-achievements">
                 <ul>
-                  <li>Built a retrieval-based framework for misinformation detection requiring no model fine-tuning.</li>
+                  <li>Built a retrieval-based framework for misinformation detection and credibility assessment, requiring no model fine-tuning.</li>
                   <li>Addressed semantic-RAG failure in deceptive content detection with a veracity-oriented retrieval key.</li>
                   <li>Reached <span class="highlight">84.9% F1</span> on a frozen Mistral-7B, beating a <span class="highlight">77.9%</span> zero-shot baseline and a <span class="highlight">74.8%</span> semantic-RAG baseline.</li>
                   <li>Engineered an indexing scheme compact enough to cover 8,000+ docs in under <span class="highlight">25 KB</span>.</li>
@@ -1182,10 +1182,10 @@
               </div>
               <div class="tab-panel panel-achievements">
                 <ul>
-                  <li>Replaced a multi-stage rule-based NLP pipeline with a unified <span class="highlight">LLM slot-filler</span> in a single model call.</li>
-                  <li>Enabled robust parsing of complex expressions using few-shot prompting over structured JSON output.</li>
-                  <li>Identified colloquial Persian phrasing as a key limitation of rule-based slot extraction.</li>
-                  <li>Built a task management agent integrated with <span class="highlight">Google Calendar API</span> for end-to-end scheduling.</li>
+                  <li>Diagnosed colloquial and context-dependent Persian phrasing as the key limitation of a legacy rule-based slot extraction pipeline.</li>
+                  <li>Replaced the pipeline with a unified <span class="highlight">LLM slot-filler</span> that robustly parses complex expressions into structured JSON.</li>
+                  <li>Enabled reliable intent extraction and structured information generation through few-shot prompting in a single model call.</li>
+                  <li>Built an end-to-end <span class="highlight">time and task management agent</span> integrated with <span class="highlight">Google Calendar API</span> for automated scheduling.</li>
                 </ul>
               </div>
               <div class="tab-panel panel-people">
@@ -1389,13 +1389,12 @@
             </div>
             <div class="tab-panel panel-achievements">
               <ul>
-                <li>Engineered backend for <span class="highlight">30M+ clients</span> at <span class="highlight">1,100+ req/sec</span> peak flawlessly.</li>
-                <li>Reduced <span class="highlight">p99 latency from 2s to 18ms</span> via caching redesign.</li>
-                <li>Built session microservice with <span class="highlight">JWT</span> + <span class="highlight">Spring Boot</span> to manage user sessions.</li>
+                <li>Developed and maintained backend services for <span class="highlight">30M+ clients</span> at <span class="highlight">1,100+ req/sec</span> peak flawlessly.</li>
+                <li>Redesigned caching strategy, cutting p99 latency from <span class="highlight"> 2s to 18ms</span>, and reducing database read load.</li>
+                <li>Centralized session management systems with <span class="highlight">JWT</span>, <span class="highlight">LDAP</span> &amp; <span class="highlight">Spring Boot</span> to enable independent scaling.</li>
                 <li>Implemented async messaging using <span class="highlight">RabbitMQ</span> to decouple services and improve resilience.</li>
                 <li>Set up monitoring with <span class="highlight">Prometheus</span> and <span class="highlight">Grafana</span> to ensure service uptime.</li>
                 <li>Designed <span class="highlight">database schemas</span> optimized for high-throughput workloads across distributed services.</li>
-                <li>Participated in code reviews and enforced engineering best practices across the team.</li>
               </ul>
             </div>
             <div class="tab-panel panel-people">
