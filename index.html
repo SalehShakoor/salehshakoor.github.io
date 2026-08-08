@@ -1014,6 +1014,25 @@
   .cert-row .cert-name { font-weight: 600; color: #1a1d23; font-size: 0.95rem; }
   .cert-row .cert-org { color: #6b7280; font-size: 0.82rem; margin-left: 0.4rem; }
   .cert-row a { font-size: 0.85rem; white-space: nowrap; }
+  .cert-block { border-top: 1px solid #eef0f4; padding: 0.75rem 0; }
+  .cert-block:first-child { border-top: none; padding-top: 0; }
+  .cert-block .cert-row { border-top: none; padding: 0; }
+
+  .cert-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+  }
+  .cert-tag {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: rgba(30, 45, 119, 0.85);
+    background: rgba(74, 108, 247, 0.08);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
 
   @media (max-width: 767px) {
     .cert-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
@@ -1645,10 +1664,21 @@
     <div class="w-100">
       <h2>Certificates</h2>
 
-      <div class="cert-row">
-        <span><span class="cert-name">MLx Representation Learning &amp; Generative AI</span><span class="cert-org">OxML</span></span>
-        <a href="https://elandi.ai/awards/a91b673f-4c73-4616-8830-2967eec31948" target="_blank" rel="noopener noreferrer">View Certificate &rarr;</a>
+      <div class="cert-block">
+        <div class="cert-row">
+          <span><span class="cert-name">MLx Representation Learning &amp; Generative AI</span><span class="cert-org">OxML</span></span>
+          <a href="https://elandi.ai/awards/a91b673f-4c73-4616-8830-2967eec31948" target="_blank" rel="noopener noreferrer">View Certificate &rarr;</a>
+        </div>
+        <div class="cert-topics">
+          <span class="cert-tag">World Models</span>
+          <span class="cert-tag">Multi-Agent Systems</span>
+          <span class="cert-tag">Multimodal AI</span>
+          <span class="cert-tag">Generative &amp; Diffusion Models</span>
+          <span class="cert-tag">AI for Mathematics</span>
+          <span class="cert-tag">Neural Network Interpretability</span>
+        </div>
       </div>
+
       <div class="cert-row">
         <span><span class="cert-name">Neural Networks and Deep Learning</span><span class="cert-org">Coursera</span></span>
         <a href="https://coursera.org/share/166877951360521f36d5cf0664ad2fab" target="_blank" rel="noopener noreferrer">View Certificate &rarr;</a>
