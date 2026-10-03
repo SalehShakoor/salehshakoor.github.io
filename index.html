@@ -1353,6 +1353,103 @@
                 display: none;
             }
         }
+
+        /* Long background lists stay expanded on desktop. */
+        .mobile-background-details > summary {
+            color: inherit;
+            cursor: default;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .mobile-background-details > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .mobile-background-details > summary::marker {
+            content: '';
+        }
+
+        .mobile-background-details > summary > h2 {
+            margin: 0;
+        }
+
+        .mobile-fold-note {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .experience-page .teaching-description {
+                display: none;
+            }
+
+            .home-context > section + section::before,
+            .home-overview > section + section::before,
+            .background-page main section:not(#education)::before,
+            .details-grid > .details-people::before {
+                content: '';
+                display: block;
+                width: min(46%, 168px);
+                border-top: 1px solid var(--rule);
+                margin-bottom: 14px;
+            }
+
+            .home-page .home-context {
+                gap: 18px;
+            }
+
+            .home-page .home-overview,
+            .background-page .columns {
+                gap: 20px;
+            }
+
+            .background-page .columns + .columns,
+            .background-sidebar #skills {
+                margin-top: 20px;
+            }
+
+            .background-page .course-table td,
+            .background-page .course-table th {
+                padding: 4px 6px;
+            }
+
+            .mobile-background-details > summary {
+                position: relative;
+                cursor: pointer;
+                padding-left: 15px;
+                margin-bottom: 0;
+            }
+
+            .mobile-background-details > summary::before {
+                content: '+';
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: #174b84;
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .mobile-background-details[open] > summary::before {
+                content: '-';
+            }
+
+            .mobile-fold-note {
+                display: block;
+                margin-top: 3px;
+                color: #555;
+                font-size: .75rem;
+                line-height: 1.5;
+            }
+
+            .mobile-background-details > .mobile-fold-content {
+                margin-top: 12px;
+            }
+
+            .mobile-background-details > summary:focus-visible {
+                outline-offset: 5px;
+            }
+        }
     </style>
     <script data-home-metadata="" type="application/ld+json">
         {
@@ -1837,7 +1934,9 @@
                     <p>MLx Representation Learning &amp; Generative AI University of Oxford</p></section>
             </div>
             <div class="columns">
-                <section id="coursework"><h2>Selected Coursework</h2>
+                <section id="coursework"><details class="mobile-background-details" open>
+                        <summary><h2>Selected Coursework</h2><span class="mobile-fold-note">10 courses · View grades</span></summary>
+                        <div class="mobile-fold-content">
                     <table class="course-table">
                         <caption>Selected coursework and grades</caption>
                         <thead>
@@ -1889,9 +1988,12 @@
                         </tr>
                         </tbody>
                     </table>
-                </section>
+                </div>
+                    </details></section>
                 <div class="background-sidebar">
-                    <section id="certificates"><h2>Certificates</h2>
+                    <section id="certificates"><details class="mobile-background-details" open>
+                        <summary><h2>Certificates</h2><span class="mobile-fold-note">4 certificates · Oxford ML, Coursera &amp; Neshan</span></summary>
+                        <div class="mobile-fold-content">
                         <ul class="cert-list">
                             <li><strong>MLx Representation Learning &amp; Generative AI</strong> <span class="muted">(OxML)</span>
                                 <a href="https://elandi.ai/awards/a91b673f-4c73-4616-8830-2967eec31948"
@@ -1908,7 +2010,8 @@
                                 <a href="https://www.linkedin.com/posts/saleh-shakoor_im-happy-to-share-that-ive-obtained-a-new-activity-7110678222798733312-c5Qx"
                                    rel="noopener noreferrer" target="_blank">[Certificate]</a></li>
                         </ul>
-                    </section>
+                    </div>
+                    </details></section>
                     <section class="compact-skills" id="skills"><h2>Technical Skills</h2>
                         <dl class="skills">
                             <div>
@@ -2081,6 +2184,23 @@
         pages.set('home', {content: home.content, title: document.title, canonical: canonical.href});
         let activePage = 'home';
         let navigationTicket = 0;
+        const backgroundMobileView = matchMedia('screen and (max-width: 600px)');
+
+        function configureBackgroundLists() {
+            const panels = document.querySelectorAll('.mobile-background-details');
+            panels.forEach(panel => panel.removeAttribute('name'));
+            panels.forEach(panel => {
+                panel.open = !backgroundMobileView.matches;
+                if (backgroundMobileView.matches) panel.setAttribute('name', 'background-lists');
+            });
+        }
+
+        backgroundMobileView.addEventListener('change', configureBackgroundLists);
+        document.addEventListener('click', event => {
+            const summary = event.target.closest('.mobile-background-details > summary');
+            if (summary && !backgroundMobileView.matches) event.preventDefault();
+        });
+
 
         function renderPage(reset = false) {
             const requested = new URL(location.href).searchParams.get('page') || 'home';
@@ -2090,6 +2210,7 @@
             const page = pages.get(route);
             document.querySelector('.site').replaceWith(page.content.cloneNode(true));
             document.querySelector('.skip-link').setAttribute('href', '#' + document.querySelector('.site main').id);
+            configureBackgroundLists();
             document.title = page.title;
             canonical.href = page.canonical;
             document.querySelector('script[data-home-metadata]')?.remove();
