@@ -1336,6 +1336,23 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* A slightly wider, more compact mobile view; narratives remain on desktop. */
+        @media screen and (max-width: 600px) {
+            html {
+                font-size: 93.75%;
+            }
+
+            .site {
+                margin: 18px auto;
+                padding: 0 14px;
+            }
+
+            .research-page .detail-narrative,
+            .experience-page .detail-narrative {
+                display: none;
+            }
+        }
     </style>
     <script data-home-metadata="" type="application/ld+json">
         {
@@ -1430,7 +1447,7 @@
                     href="?page=experience">Experience</a> <span aria-hidden="true">·</span> <a href="?page=background">Background</a>
             </nav>
         </header>
-        <main id="main"><h1 class="visually-hidden">Research</h1>
+        <main id="main-research"><h1 class="visually-hidden">Research</h1>
             <section id="publications"><h2>Publications</h2>
                 <p class="publication"><strong>When Neighbors Mislead: A Retrieval Framework for Misinformation
                     Detection</strong><br/>Saleh Shakoor, Behnam Yousefimehr, Mehdi Ghatee<br/><span class="muted">Manuscript in preparation · 2026</span>
@@ -1637,7 +1654,7 @@
                                                                                             href="?page=experience">Experience</a>
                 <span aria-hidden="true">·</span> <a href="?page=background">Background</a></nav>
         </header>
-        <main id="main"><h1 class="visually-hidden">Experience</h1>
+        <main id="main-experience"><h1 class="visually-hidden">Experience</h1>
             <section id="work"><h2>Work Experience</h2>
                 <article class="entry" id="ns">
                     <div class="row-head"><h3>Backend Developer, <a href="https://www.linkedin.com/company/neshanmaps"
@@ -1807,7 +1824,7 @@
                     href="?page=research">Research</a> <span aria-hidden="true">·</span> <a href="?page=experience">Experience</a>
                 <span aria-hidden="true">·</span> <a aria-current="page" href="?page=background">Background</a></nav>
         </header>
-        <main id="main"><h1 class="visually-hidden">Background</h1>
+        <main id="main-background"><h1 class="visually-hidden">Background</h1>
             <div class="columns">
                 <section id="education"><h2>Education</h2>
                     <div class="row-head"><h3> B.Sc. in Computer Science</h3><span
@@ -1926,7 +1943,7 @@
                 <a href="?page=experience">Experience</a> <span aria-hidden="true">·</span> <a href="?page=background">Background</a>
             </nav>
         </header>
-        <main id="main">
+        <main id="main-references">
             <section class="references-directory" id="references">
                 <div class="reference-heading"><h1 class="page-title">Academic References</h1>
                     <a class="back-link" href="?page=home#references-link">Back to Home</a></div>
@@ -2072,6 +2089,7 @@
             if (route === activePage && !reset) return;
             const page = pages.get(route);
             document.querySelector('.site').replaceWith(page.content.cloneNode(true));
+            document.querySelector('.skip-link').setAttribute('href', '#' + document.querySelector('.site main').id);
             document.title = page.title;
             canonical.href = page.canonical;
             document.querySelector('script[data-home-metadata]')?.remove();
